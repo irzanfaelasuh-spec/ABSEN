@@ -1,0 +1,310 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0,
+                   maximum-scale=1.0,
+                   user-scalable=no">
+
+    <meta name="theme-color" content="#07100c">
+
+    <title>Absensi Siswa - MAD7XSIGMA</title>
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <!-- BACKGROUND -->
+    <div class="background">
+
+        <div class="grid"></div>
+
+        <div class="orb orb-one"></div>
+        <div class="orb orb-two"></div>
+        <div class="orb orb-three"></div>
+
+        <div id="particles"></div>
+
+    </div>
+
+
+    <!-- MAIN APP -->
+    <main class="app">
+
+        <!-- HEADER -->
+        <header class="header">
+
+            <div class="logo">
+                <span>✓</span>
+            </div>
+
+            <div class="header-text">
+                <div class="mini-title">
+                    MAD7XSIGMA
+                </div>
+
+                <h1>
+                    Absensi Siswa
+                </h1>
+            </div>
+
+            <div class="live">
+                <span></span>
+                LIVE
+            </div>
+
+        </header>
+
+
+        <div class="separator"></div>
+
+
+        <!-- FORM -->
+        <form id="attendanceForm">
+
+            <!-- NAME -->
+            <section class="input-section">
+
+                <label>
+                    Nama Siswa
+                </label>
+
+                <div class="input-wrapper">
+
+                    <div class="input-icon">
+                        <svg viewBox="0 0 24 24">
+                            <path d="M20 21a8 8 0 0 0-16 0"/>
+                            <circle cx="12"
+                                    cy="7"
+                                    r="4"/>
+                        </svg>
+                    </div>
+
+                    <input
+                        id="name"
+                        type="text"
+                        maxlength="50"
+                        autocomplete="name"
+                        placeholder="Masukkan nama kamu..."
+                        required
+                    >
+
+                </div>
+
+            </section>
+
+
+            <!-- STATUS -->
+            <section class="status-section">
+
+                <label>
+                    Status Kehadiran
+                </label>
+
+                <div class="status-grid">
+
+
+                    <!-- HADIR -->
+                    <button
+                        type="button"
+                        class="status-card"
+                        data-status="Hadir"
+                    >
+
+                        <div class="status-icon hadir">
+                            ✓
+                        </div>
+
+                        <div class="status-info">
+                            <strong>Hadir</strong>
+                            <small>Masuk sekolah</small>
+                        </div>
+
+                    </button>
+
+
+                    <!-- IZIN -->
+                    <button
+                        type="button"
+                        class="status-card"
+                        data-status="Izin"
+                    >
+
+                        <div class="status-icon izin">
+                            !
+                        </div>
+
+                        <div class="status-info">
+                            <strong>Izin</strong>
+                            <small>Ada keperluan</small>
+                        </div>
+
+                    </button>
+
+
+                    <!-- SAKIT -->
+                    <button
+                        type="button"
+                        class="status-card"
+                        data-status="Sakit"
+                    >
+
+                        <div class="status-icon sakit">
+                            +
+                        </div>
+
+                        <div class="status-info">
+                            <strong>Sakit</strong>
+                            <small>Tidak dapat hadir</small>
+                        </div>
+
+                    </button>
+
+
+                    <!-- ALPHA -->
+                    <button
+                        type="button"
+                        class="status-card"
+                        data-status="Alpha"
+                    >
+
+                        <div class="status-icon alpha">
+                            ×
+                        </div>
+
+                        <div class="status-info">
+                            <strong>Alpha</strong>
+                            <small>Tanpa keterangan</small>
+                        </div>
+
+                    </button>
+
+                </div>
+
+            </section>
+
+
+            <!-- SUBMIT -->
+            <button
+                id="submitBtn"
+                class="submit-btn"
+                type="submit"
+            >
+
+                <span class="submit-icon">
+                    ➤
+                </span>
+
+                <span class="submit-text">
+                    Submit Absensi
+                </span>
+
+                <span class="submit-arrow">
+                    →
+                </span>
+
+            </button>
+
+        </form>
+
+
+        <!-- FOOTER -->
+        <footer class="footer">
+
+            <span>ABSENSI ONLINE</span>
+
+            <i></i>
+
+            <span>MAD7XSIGMA</span>
+
+        </footer>
+
+    </main>
+
+
+    <!-- SUCCESS MODAL -->
+    <div
+        class="modal"
+        id="modal"
+    >
+
+        <div class="modal-card">
+
+            <button
+                class="modal-close-x"
+                id="closeModalX"
+                type="button"
+            >
+                ×
+            </button>
+
+
+            <div class="success-circle">
+                ✓
+            </div>
+
+
+            <h2>
+                Absensi Berhasil
+            </h2>
+
+            <p class="modal-description">
+                Pesan absensi sudah dibuat dan disalin.
+            </p>
+
+
+            <div
+                class="message-preview"
+                id="messagePreview"
+            ></div>
+
+
+            <div class="modal-buttons">
+
+                <button
+                    id="copyBtn"
+                    type="button"
+                    class="copy-btn"
+                >
+                    Salin Pesan
+                </button>
+
+                <button
+                    id="openWhatsapp"
+                    type="button"
+                    class="whatsapp-btn"
+                >
+                    WhatsApp
+                </button>
+
+            </div>
+
+
+            <button
+                id="closeModal"
+                type="button"
+                class="close-btn"
+            >
+                Tutup
+            </button>
+
+        </div>
+
+    </div>
+
+
+    <!-- TOAST -->
+    <div
+        id="toast"
+        class="toast"
+    >
+        Pesan berhasil disalin ✓
+    </div>
+
+
+    <script src="script.js"></script>
+
+</body>
+</html>
